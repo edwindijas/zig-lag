@@ -10,10 +10,8 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-
-    "baseUrl": ".",
     "paths": {
-      "@shared/*": ["packages/shared/*"]
+      "@shared/*": ["./packages/shared/*"]
     }
   }
 }

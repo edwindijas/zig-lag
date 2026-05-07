@@ -2,50 +2,38 @@ import path from 'node:path';
 
 import js from '@eslint/js';
 import filesRulesMatch from 'eslint-plugin-unicorn';
-import eslintImport from 'eslint-plugin-import-x';
-import react from '@eslint-react/eslint-plugin';
+import importX from 'eslint-plugin-import-x';
+import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
-export default [
-  // Global ignores
-  {
-    ignores: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/.storybook/**',
-      '**/.wxt/**',
-      '**/public/**',
-    ],
-  },
+import { defineConfig, globalIgnores } from 'eslint/config'
 
-  // Base TS + React config
+export default defineConfig([
+  globalIgnores(['dist', 'node_modules', 'public', '.storybook', '.wxt']),
   {
     files: ['**/*.{ts,tsx}'],
+    extends: [
+      js.configs.recommended,
+      tseslint.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+      importX.flatConfigs.recommended,
+    ],
     languageOptions: {
-      ecmaVersion: 2020,
-      sourceType: 'module',
       globals: globals.browser,
       parser: tseslint.parser,
-      parserOptions: {
-        project: ['./tsconfig.base.json'],
-        tsconfigRootDir: path.resolve(),
-      },
+    },
+    plugins: {
+      react,
+      'filename-rules': filesRulesMatch,
+      'import-x': importX,
     },
 
     settings: {
       react: { version: '18.3' },
-    },
-
-    plugins: {
-      react,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      import: eslintImport,
-      'filename-rules': filesRulesMatch,
-      '@typescript-eslint': tseslint.plugin,
     },
 
     rules: {
@@ -64,7 +52,6 @@ export default [
       // Import rules
       'import-x/no-empty-named-blocks': 'error',
       'import-x/export': 'error',
-      'import-x/no-cycle': 'error',
       'import-x/no-relative-packages': 'error',
       'import-x/no-self-import': 'error',
       'import-x/no-useless-path-segments': 'error',
@@ -100,7 +87,7 @@ export default [
       '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
 
       // React
-      'react/react-in-jsx-scope': 'off',
+       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'error',
       'react/prefer-stateless-function': 'error',
       'react/button-has-type': 'error',
@@ -131,15 +118,4 @@ export default [
       'react/sort-prop-types': 'error',
     },
   },
-
-  // Style / story overrides
-  {
-    files: ['**/*style.ts', '**/styles.ts', '**/*.styles.ts', '**/*.theme.ts', '**/story.ts', '**/story.tsx'],
-    rules: {
-      '@typescript-eslint/restrict-template-expressions': 'off',
-      '@typescript-eslint/explicit-function-return-type': 'off',
-      'import-x/no-default-export': 'off',
-      'react-refresh/only-export-components': 'off'
-    },
-  },
-];
+]);
