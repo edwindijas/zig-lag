@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "Bundler",
+    "target": "es2023",
+    "lib": ["ES2023", "DOM"],
+    "module": "esnext",
+
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["packages/shared/*"]
+    }
+  }
+}
