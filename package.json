@@ -7,7 +7,10 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
   "devDependencies": {
     "@eslint-react/eslint-plugin": "^5.7.4",
     "@eslint/js": "^10.0.1",
