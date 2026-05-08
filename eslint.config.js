@@ -42,7 +42,7 @@ export default defineConfig([
     rules: {
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-
+      semi: ['error', 'always'],
       'block-spacing': 'error',
       'eol-last': ['error', 'always'],
       'object-curly-spacing': ['error', 'always'],
@@ -115,6 +115,7 @@ export default defineConfig([
       '@stylistic/jsx-sort-props': 'error',
       '@stylistic/jsx-indent': ['error', 2],
       '@stylistic/jsx-self-closing-comp': 'error',
-        },
+      '@stylistic/semi': 'off',
+    },
   },
 ]);
