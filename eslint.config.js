@@ -3,11 +3,12 @@ import path from 'node:path';
 import js from '@eslint/js';
 import filesRulesMatch from 'eslint-plugin-unicorn';
 import importX from 'eslint-plugin-import-x';
-import react from 'eslint-plugin-react';
+import eslintReact from '@eslint-react/eslint-plugin';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import stylistic from '@stylistic/eslint-plugin';
 
 import { defineConfig, globalIgnores } from 'eslint/config'
 
@@ -18,16 +19,18 @@ export default defineConfig([
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
+      // react.configs.recommended,
+      eslintReact.configs["recommended-typescript"],
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
       importX.flatConfigs.recommended,
+      stylistic.configs.recommended,
     ],
     languageOptions: {
       globals: globals.browser,
       parser: tseslint.parser,
     },
     plugins: {
-      react,
       'filename-rules': filesRulesMatch,
       'import-x': importX,
     },
@@ -41,7 +44,6 @@ export default defineConfig([
       ...reactHooks.configs.recommended.rules,
 
       'block-spacing': 'error',
-      semi: 'error',
       'eol-last': ['error', 'always'],
       'object-curly-spacing': ['error', 'always'],
       quotes: [2, 'single', { avoidEscape: true }],
@@ -87,35 +89,32 @@ export default defineConfig([
       '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
 
       // React
-       'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'error',
-      'react/prefer-stateless-function': 'error',
-      'react/button-has-type': 'error',
-      'react/no-unused-prop-types': 'error',
-      'react/jsx-pascal-case': 'error',
-      'react/jsx-no-script-url': 'error',
-      'react/no-children-prop': 'error',
-      'react/no-danger': 'error',
-      'react/hook-use-state': 'error',
-      'react/jsx-boolean-value': 'error',
-      'react/jsx-no-comment-textnodes': 'error',
-      'react/jsx-child-element-spacing': 'error',
-      'react/no-danger-with-children': 'error',
-      'react/no-unstable-nested-components': ['error', { allowAsProps: true }],
-      'react/jsx-fragments': 'error',
-      'react/destructuring-assignment': ['error', 'always', { destructureInSignature: 'always' }],
-      'react/jsx-no-leaked-render': ['error', { validStrategies: ['ternary'] }],
-      'react/jsx-max-depth': ['error', { max: 10 }],
-      'react/function-component-definition': ['warn', { namedComponents: 'arrow-function' }],
-      'react/jsx-key': ['error', { checkFragmentShorthand: true, checkKeyMustBeforeSpread: true, warnOnDuplicates: true }],
-      'react/jsx-no-useless-fragment': 'error',
-      'react/jsx-curly-brace-presence': 'error',
-      'react/no-typos': 'error',
-      'react/display-name': 'warn',
-      'react/jsx-sort-props': 'error',
-      'react/jsx-indent': ['error', 2],
-      'react/self-closing-comp': 'error',
-      'react/sort-prop-types': 'error',
-    },
+
+      // '@eslint-react/no-script-url': 'error',
+      // '@eslint-react/no-children-prop': 'error',
+      // '@eslint-react/no-dangerously-set-innerhtml': 'error',
+      '@eslint-react/use-state': 'error',
+      '@eslint-react/jsx-no-comment-textnodes': 'error',
+      '@stylistic/jsx-child-element-spacing': 'error',
+      '@eslint-react/no-nested-component-definitions': 'error',
+      '@eslint-react/jsx-no-useless-fragment': 'error',
+      '@eslint-react/no-leaked-conditional-rendering': 'error',
+      '@eslint-react/no-missing-key': 'error',
+      '@eslint-react/no-array-index-key': 'error',
+      '@eslint-react/dom-no-script-url': 'error',
+      '@eslint-react/dom-no-unknown-property': 'error',
+      '@eslint-react/web-api-no-leaked-fetch': 'error',
+      '@eslint-react/naming-convention-context-name': 'error',
+      '@eslint-react/no-unstable-default-props': 'error',
+      '@eslint-react/no-use-context': 'error',
+      '@eslint-react/dom-no-missing-button-type': 'error',
+      '@eslint-react/jsx-no-useless-fragment': 'error',
+      '@stylistic/jsx-curly-brace-presence': 'error',
+      '@eslint-react/no-missing-component-display-name': 'warn',
+      '@eslint-react/no-missing-context-display-name': 'warn',
+      '@stylistic/jsx-sort-props': 'error',
+      '@stylistic/jsx-indent': ['error', 2],
+      '@stylistic/jsx-self-closing-comp': 'error',
+        },
   },
 ]);
