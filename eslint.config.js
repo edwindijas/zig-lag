@@ -36,7 +36,18 @@ export default defineConfig([
     },
 
     settings: {
-      react: { version: '18.3' },
+      react: { version: '19.2' },
+      'import-x/resolver': {
+        // 1. For standard JavaScript/Node resolution
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx']
+        },
+        // 2. For TypeScript resolution
+        typescript: {
+          alwaysTryTypes: true,
+          project: './tsconfig.json' 
+        }
+      },
     },
 
     rules: {
@@ -52,6 +63,7 @@ export default defineConfig([
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 
       // Import rules
+      'import-x/no-unresolved': [2, { commonjs: false, amd: true }],
       'import-x/no-empty-named-blocks': 'error',
       'import-x/export': 'error',
       'import-x/no-relative-packages': 'error',
@@ -112,8 +124,7 @@ export default defineConfig([
       '@stylistic/jsx-curly-brace-presence': 'error',
       '@eslint-react/no-missing-component-display-name': 'warn',
       '@eslint-react/no-missing-context-display-name': 'warn',
-      '@stylistic/jsx-sort-props': 'error',
-      '@stylistic/jsx-indent': ['error', 2],
+      'indent': ['error', 2],
       '@stylistic/jsx-self-closing-comp': 'error',
       '@stylistic/semi': 'off',
     },
