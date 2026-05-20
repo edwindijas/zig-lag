@@ -1,5 +1,7 @@
 import { combineSlices } from '@reduxjs/toolkit';
 
-export const rootReducer = combineSlices({
+import { authReducer } from '@/features/auth/store/store';
 
+export const rootReducer = combineSlices({
+  auth: authReducer,
 }).withLazyLoadedSlices();

@@ -127,6 +127,24 @@ export default defineConfig([
       'indent': ['error', 2],
       '@stylistic/jsx-self-closing-comp': 'error',
       '@stylistic/semi': 'off',
+      "@stylistic/member-delimiter-style": ['error', {
+        "multiline": {
+          "delimiter": "comma",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "comma",
+          "requireLast": true
+        },
+        "overrides": {
+          "interface": {
+            "multiline": {
+              "delimiter": "semi",
+              "requireLast": true
+            }
+          }
+        }
+      }],
     },
   },
 ]);
