@@ -1,6 +1,6 @@
 import type { RouteObject } from 'react-router';
 
-import { SigninPageLoader } from '../pages';
+import { SigninPageLoader, SignupPageLoader } from '../pages';
 
 export const authRoutes: RouteObject = {
   path: 'auth',
@@ -8,6 +8,13 @@ export const authRoutes: RouteObject = {
     {
       path: 'signin',
       Component: SigninPageLoader,
+      handle: {
+        requiresAuth: false,
+      },
+    },
+    {
+      path: 'signup',
+      Component: SignupPageLoader,
       handle: {
         requiresAuth: false,
       },
