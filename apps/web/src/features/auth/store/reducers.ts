@@ -9,4 +9,7 @@ export const reducers = {
   setIsAuthenticated: (state: AuthState, action: PayloadAction<boolean>) => {
     state.isAuthenticated = action.payload;
   },
+  setIsLoading: (state: AuthState, action: PayloadAction<boolean>) => {
+    state.isLoading = action.payload;
+  },
 };

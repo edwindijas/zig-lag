@@ -29,6 +29,13 @@ export default defineConfig([
     languageOptions: {
       globals: globals.browser,
       parser: tseslint.parser,
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: ['./tsconfig.app.json', './tsconfig.json',  './tsconfig.base.json'], // Path to your root tsconfig
+          defaultProject: './tsconfig.json',
+        },
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
     plugins: {
       'filename-rules': filesRulesMatch,

@@ -1,9 +1,12 @@
-import type { RouteObject } from 'react-router';
+import type { AppRouteObject } from '@/src/app/router/types';
 
 import { DashboardMainPageLoader } from './pages/main';
 
-export const dashboardRoute: RouteObject = {
+export const dashboardRoutes: AppRouteObject = {
   path: '/',
+  handle: {
+    requiresAuth: false,
+  },
   children: [
     {
       path: '',

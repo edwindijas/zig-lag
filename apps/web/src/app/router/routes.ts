@@ -1,5 +1,6 @@
-import type { RouteObject } from 'react-router';
+import { authRoutes } from '@/features/auth/router';
+import { dashboardRoutes } from '@/features/dashboard/routes';
 
-import { dashboardRoute as dashboardRoutes } from '@/features/dashboard/routes';
+import type { AppRouteObject } from './types';
 
-export const routes: RouteObject[] = [dashboardRoutes];
+export const routes: AppRouteObject[] = [dashboardRoutes, authRoutes];
