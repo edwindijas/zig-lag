@@ -78,7 +78,7 @@ export default defineConfig([
       'import-x/order': [
         'error',
         {
-          groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index'], 'object', 'type'],
+          groups: ["builtin", "external", "internal", "parent", "sibling"],
           pathGroups: [
             { pattern: '@/shared/**', group: 'internal', position: 'after' },
             { pattern: '@/src/**', group: 'internal', position: 'after' },
