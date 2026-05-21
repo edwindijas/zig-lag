@@ -1,11 +1,10 @@
 import { createBrowserRouter, type RouteObject } from 'react-router';
 
-import { AuthRouteGuard } from '@/src/features/auth/router';
-
+import { RouterOutlet } from './outlet';
 import { routes } from './routes';
 
 export const router = createBrowserRouter([{
   path: '',
-  Component: AuthRouteGuard,
+  Component: RouterOutlet,
   children: routes as RouteObject[],
 }]);
