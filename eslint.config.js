@@ -154,4 +154,10 @@ export default defineConfig([
       }],
     },
   },
+  {
+    files: ['**/story.{js,jsx,ts,tsx}'],
+    rules: {
+      'import-x/no-default-export': 'off',
+    },
+  }
 ]);
