@@ -6,6 +6,7 @@
     "module": "es2022",
     "moduleResolution": "bundler",
     "esModuleInterop": true,
+    "typeRoots": ["node_modules/@types", "@types/node", "./src/types"],
     "paths": {
       "@/src/*": ["./src/*"],
     },
