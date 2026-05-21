@@ -6,7 +6,7 @@ import { AuthRouteGuard } from '@/src/features/auth/router';
 import { LayoutShell } from '@/src/layout';
 import { AppThemeProvider } from '@/src/theme';
 
-export const RouterOutlet = (): ReactNode => {
+export const RouterWrapper = (): ReactNode => {
   return (
     <AppThemeProvider>
       <LayoutShell>
