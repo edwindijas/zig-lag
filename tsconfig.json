@@ -18,7 +18,7 @@
     "paths": {
       "@shared/*": ["./packages/shared/*"]
     },
-    "types": ["node"],
+    "types": ["@types/node"],
   },
   "references": [
     {
