@@ -1,13 +1,10 @@
 {
-  "name": "@zig-lap/shared",
+  "name": "@pack/shared",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "main": "./index.ts",
-  "types": "./index.ts",
-  "exports": {
-    ".": "./index.ts"
-  },
+  "types": "./index.d.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "build": "tsc --build"

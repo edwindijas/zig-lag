@@ -17,6 +17,12 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@shared/*": ["./packages/shared/*"]
+    },
+    "types": ["node"],
+  },
+  "references": [
+    {
+      "path": "./packages/shared"
     }
-  }
+  ]
 }
