@@ -134,6 +134,9 @@ export default defineConfig([
       'indent': ['error', 2],
       '@stylistic/jsx-self-closing-comp': 'error',
       '@stylistic/semi': 'off',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': ['error'],
+      '@stylistic/max-len': ["error", { "code": 120, "ignoreComments": true, "ignoreStrings": true }],
       "@stylistic/member-delimiter-style": ['error', {
         "multiline": {
           "delimiter": "comma",
