@@ -6,11 +6,16 @@ export const GlobalResetCSS = createGlobalStyle`
   *::after {
     box-sizing: border-box;
     background-repeat: no-repeat;
-  }
-
-  * {
     padding: 0;
     margin: 0;
+  }
+
+  :root {
+    font-size: 10px;
+  }
+  
+  #root {
+    isolation: isolate;
   }
 
   html {
@@ -23,6 +28,7 @@ export const GlobalResetCSS = createGlobalStyle`
 
   body {
     min-block-size: 100%;
+    font-size: 1.6rem;
   }
 
   img,
@@ -418,7 +424,4 @@ export const GlobalResetCSS = createGlobalStyle`
     outline-offset: 0.2rem;
   }
 
-  #root, #__next {
-    isolation: isolate;
-  }
 `;

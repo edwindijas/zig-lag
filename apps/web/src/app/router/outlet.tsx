@@ -2,9 +2,9 @@ import type { ReactNode } from 'react';
 
 import { Outlet } from 'react-router';
 
+import { AppThemeProvider } from '@/src/app/theme';
 import { AuthRouteGuard } from '@/src/features/auth/router';
 import { LayoutShell } from '@/src/layout';
-import { AppThemeProvider } from '@/src/theme';
 
 export const RouterWrapper = (): ReactNode => {
   return (
