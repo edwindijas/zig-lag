@@ -8,14 +8,22 @@ export const GlobalResetCSS = createGlobalStyle`
     background-repeat: no-repeat;
     padding: 0;
     margin: 0;
+    border: 0;
   }
 
   :root {
     font-size: 10px;
   }
+
+  #root, html, body {
+    width: 100%;
+    height: 100%;
+  } 
   
   #root {
     isolation: isolate;
+    width: 100%;
+    height: 100%;
   }
 
   html {
@@ -24,6 +32,7 @@ export const GlobalResetCSS = createGlobalStyle`
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
         block-size: 100%;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   body {
@@ -324,6 +333,10 @@ export const GlobalResetCSS = createGlobalStyle`
 
   svg:not([fill]) {
     fill: currentColor;
+  }
+
+  button, a {
+    cursor: pointer;
   }
 
   input,

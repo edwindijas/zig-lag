@@ -8,9 +8,7 @@
     "apps/*",
     "packages/*"
   ],
-  "scripts": {
-    
-  },
+  "scripts": {},
   "devDependencies": {
     "@eslint-react/eslint-plugin": "^5.7.4",
     "@eslint/js": "^10.0.1",
@@ -33,6 +31,7 @@
     "vite-plugin-eslint2": "^5.1.0"
   },
   "dependencies": {
+    "immer": "^11.1.8",
     "zod": "^4.4.3"
   }
 }

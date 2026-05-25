@@ -3,8 +3,8 @@
   "compilerOptions": {
     "rootDir": "src",
     "composite": true,
-    "module": "nodenext",
-    "moduleResolution": "NodeNext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "declaration": true,
     "outDir": "dist",
     "target": "ES2022",
