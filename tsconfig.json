@@ -16,7 +16,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@shared/*": ["./packages/shared/*"]
+      "@shared/*": ["./packages/shared/src/*"]
     },
     "types": ["@types/node"],
   },

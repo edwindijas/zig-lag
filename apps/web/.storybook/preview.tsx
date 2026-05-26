@@ -4,6 +4,8 @@ import { GlobalResetCSS } from '../src/app/styles/reset';
 import { StoreProvider } from '../src/app/store/';
 import { AppThemeProvider } from '../src/app/theme/';
 
+import { MemoryRouter, RouterProvider, Route } from 'react-router';
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -17,8 +19,10 @@ const preview: Preview = {
     (Story) => (
       <StoreProvider>
         <GlobalResetCSS />
-        <AppThemeProvider >
-          <Story />
+         <AppThemeProvider >
+          <MemoryRouter >
+              <Story />
+          </MemoryRouter>
         </AppThemeProvider>
       </StoreProvider>
     ),

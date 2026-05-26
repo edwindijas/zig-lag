@@ -9,6 +9,6 @@
     "outDir": "dist",
     "target": "ES2022",
     "strict": true,
-    "types": ["node"]
+    "types": ["node"],
   }
 }
