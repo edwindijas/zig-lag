@@ -2,13 +2,26 @@ import { produce } from 'immer';
 
 import type { ApiResponse } from './types';
 
-export const apiFetch = async <T> (url: string, options: RequestInit = { method: 'GET' }): Promise<ApiResponse<T>> => {
+export const apiFetch = async <T>(
+  path: string,
+  options: RequestInit = { method: 'GET' },
+): Promise<ApiResponse<T>> => {
+  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
   const _options = produce(options, (draft) => {
-    draft.headers = draft.headers ? draft.headers as Record<string, string> : {};
-    draft.headers['content-type'] = draft.headers['content-type'] ?? 'application/json';
+    draft.headers = draft.headers
+      ? (draft.headers as Record<string, string>)
+      : {};
+    draft.headers['content-type']
+      = draft.headers['content-type'] ?? 'application/json';
   });
 
-  const response = await fetch(url, _options);
+  const base = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+
+  const combinedURL = new URL(cleanPath, base).toString();
+
+  const response = await fetch(combinedURL, _options);
 
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`);

@@ -5,10 +5,12 @@ import type { ApiError } from '@/src/utils/api/types';
 
 import { createUser } from '../api';
 
-export const useCreateUser = (): UseMutationResult<unknown, ApiError, SignupRequest> => {
-  return useMutation(
-    {
-      mutationFn: createUser,
-    },
-  );
+export const useCreateUserMutation = (): UseMutationResult<
+  unknown,
+  ApiError,
+  SignupRequest
+> => {
+  return useMutation({
+    mutationFn: createUser,
+  });
 };

@@ -3,15 +3,18 @@ import { type ReactNode } from 'react';
 
 import { SignupForm } from '../../components/signup-form/signup';
 
+import { useCreateUserMutation } from '../../queries/user';
+
 import {
   StyledSignupFormWrapper,
   StyledSignupWrapper,
 } from './style';
 
 export const SignupPage = (): ReactNode => {
+  const { mutate: createUser } = useCreateUserMutation();
+
   const createAccount = (data: SignupRequest): void => {
-    // eslint-disable-next-line no-console
-    console.log(data);
+    createUser(data);
   };
 
   return (

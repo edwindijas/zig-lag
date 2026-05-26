@@ -29,7 +29,7 @@ export const SignupForm = ({ onSubmit }: SignupFormProps): ReactElement => {
   const handleSubmit = (e: SubmitEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const result = signupRequestSchema.safeParse(formData);
-
+    setErrors({});
     if (!result.success) {
       setErrors(mapZodIssue(result.error));
       return;

@@ -134,7 +134,7 @@ export default defineConfig([
       'indent': 'off',
       '@stylistic/jsx-self-closing-comp': 'error',
       '@stylistic/semi': 'off',
-      '@stylistic/arrow-params': ['error', 'always'],
+      '@stylistic/arrow-parens': ['error', 'always'],
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['error'],
       '@stylistic/max-len': ["error", { "code": 120, "ignoreComments": true, "ignoreStrings": true }],
