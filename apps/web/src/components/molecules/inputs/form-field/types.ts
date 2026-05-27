@@ -4,5 +4,5 @@ import type { BasicInputProps } from '@/components/atoms/inputs/basic-input/type
 
 export interface FormFieldProps extends BasicInputProps {
   errors?: Array<string | $ZodIssue>;
-  container?: boolean;
+  container?: boolean
 }

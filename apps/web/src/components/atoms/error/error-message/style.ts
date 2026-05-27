@@ -2,7 +2,7 @@ import { ERROR_TYPE, type ErrorType } from '@pack/shared/src/constants/errors';
 
 import { styled } from 'styled-components';
 
-export const StyledErrorMessage = styled.p<{ $type: ErrorType, $container: boolean, }>`
+export const StyledErrorMessage = styled.p<{ $type: ErrorType, $container: boolean }>`
   display: block;
   font-size: 1.4rem;
   border-radius: 0.6rem;

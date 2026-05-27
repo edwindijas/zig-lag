@@ -3,5 +3,5 @@ export interface BasicInputProps {
   defaultValue?: string;
   type?: string;
   name?: string;
-  onChange?: (v: string) => void;
+  onChange?: (v: string) => void
 }

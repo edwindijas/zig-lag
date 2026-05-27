@@ -1,7 +1,7 @@
 import type { IndexRouteObject, NonIndexRouteObject } from 'react-router';
 
 export interface AppRouteHandle {
-  requiresAuth?: boolean;
+  requiresAuth?: boolean
 }
 
 export type AppIndexRouteObject = Omit<
