@@ -6,9 +6,13 @@
     "module": "es2022",
     "moduleResolution": "bundler",
     "esModuleInterop": true,
-    "typeRoots": ["node_modules/@types", "@types/node", "./src/types"],
+    "typeRoots": ["node_modules/@types", "@types/node", "./src/types", "@types/pg"],
     "paths": {
       "@/src/*": ["./src/*"],
+      "@/features/*": ["./src/features/*"],
+      "@/common/*": ["./src/common/*"],
+      "@/app/*": ["./src/app/*"],
+      "@/middleware/*": ["./src/middleware/*"],
     },
   },
   "include": [

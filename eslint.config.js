@@ -87,11 +87,14 @@ export default defineConfig([
         {
           groups: ["builtin", "external", "internal", "parent", "sibling"],
           pathGroups: [
+            { pattern: '@/pack/**', group: 'internal', position: 'after' },
             { pattern: '@/shared/**', group: 'internal', position: 'after' },
             { pattern: '@/src/**', group: 'internal', position: 'after' },
-            { pattern: '@/feature/**', group: 'internal', position: 'after' },
+            { pattern: '@/features/**', group: 'internal', position: 'after' },
+            { pattern: '@/common/**', group: 'internal', position: 'after' },
             { pattern: '@/app/**', group: 'internal', position: 'after' },
             { pattern: '@/ui/**', group: 'internal', position: 'after' },
+            { pattern: '@/middleware/**', group: 'internal', position: 'after' },
           ],
           'newlines-between': 'always-and-inside-groups',
           alphabetize: { order: 'asc', caseInsensitive: true },
@@ -145,13 +148,13 @@ export default defineConfig([
         },
         "singleline": {
           "delimiter": "comma",
-          "requireLast": true
+          "requireLast": false
         },
         "overrides": {
           "interface": {
             "multiline": {
               "delimiter": "semi",
-              "requireLast": true
+              "requireLast": false
             }
           }
         }

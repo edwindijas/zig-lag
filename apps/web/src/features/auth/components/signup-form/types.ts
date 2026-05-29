@@ -1,5 +1,5 @@
-import type { SignupRequest } from '@pack/shared/src/schema/auth';
+import type { UserSignupRequest } from '@pack/shared/src/schema/user';
 
 export interface SignupFormProps {
-  onSubmit?: (e: SignupRequest) => void
-};
+  onSubmit?: (e: UserSignupRequest) => void
+}
