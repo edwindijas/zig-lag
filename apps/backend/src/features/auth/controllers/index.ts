@@ -1,5 +1,4 @@
-import { AuthSigninRequest } from '@pack/shared/src/schema/auth';
-import { User } from '@pack/shared/src/schema/user';
+import { User, UserSigninRequest } from '@pack/shared/src/schema/user';
 import { Request, Response } from 'express';
 
 import * as AuthService from '@/src/features/auth/services';
@@ -9,7 +8,7 @@ export const whoAmi = (req: Request, res: Response<{ user?: User }>): void => {
 };
 
 export const signin = async (
-  req: Request<never, AuthSigninRequest['body']>,
+  req: Request<never, UserSigninRequest['body']>,
   res: Response,
 ): Promise<void> => {
   const { user, sessionId } = await AuthService.signin(req.body);

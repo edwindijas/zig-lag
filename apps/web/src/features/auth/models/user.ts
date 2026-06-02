@@ -1,11 +1,7 @@
-export interface AuthUser {
-  id: string;
-  name: string;
-  email: string
-}
+import type { ProtectedUser } from '@pack/shared/src/schema/user';
 
 export interface AuthState {
-  user: AuthUser | null;
+  user: ProtectedUser | null;
   isAuthenticated: boolean;
-  isLoading: boolean
+  isLoading: boolean;
 }

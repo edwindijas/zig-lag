@@ -1,4 +1,4 @@
-import { authSigninRequestSchema, type AuthSigninRequest } from '@pack/shared/src/schema/auth';
+import { userSigninRequestSchema, type UserSigninRequest } from '@pack/shared/src/schema/user';
 import { useState, type ReactElement, type SubmitEvent } from 'react';
 import { Link } from 'react-router';
 
@@ -19,16 +19,16 @@ import { StyledButton,
 import type { SigninFormProps } from './types';
 
 export const SigninForm = ({ onSubmit }: SigninFormProps): ReactElement => {
-  const [formData, setFormData] = useState<Partial<AuthSigninRequest['body']>>({});
+  const [formData, setFormData] = useState<Partial<UserSigninRequest['body']>>({});
   const [errors, setErrors] = useState<Record<string, $ZodIssue[]>>({});
 
-  const handleInputChange = (field: keyof AuthSigninRequest['body']) => (value: string): void => {
-    setFormData((prev: Partial<AuthSigninRequest['body']>) => ({ ...prev, [field]: value }));
+  const handleInputChange = (field: keyof UserSigninRequest['body']) => (value: string): void => {
+    setFormData((prev: Partial<UserSigninRequest['body']>) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = (e: SubmitEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    const result = authSigninRequestSchema.safeParse({ body: formData });
+    const result = userSigninRequestSchema.safeParse({ body: formData });
     setErrors({});
     if (!result.success) {
       setErrors(mapZodIssue(result.error));

@@ -11,8 +11,8 @@ export const apiFetch = async <T>(
     draft.headers = draft.headers
       ? (draft.headers as Record<string, string>)
       : {};
-    draft.headers['content-type'] =
-      draft.headers['content-type'] ?? 'application/json';
+    draft.headers['content-type']
+      = draft.headers['content-type'] ?? 'application/json';
     draft.credentials = 'include';
   });
 

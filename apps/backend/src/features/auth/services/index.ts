@@ -1,7 +1,7 @@
-import { AuthSigninRequest } from '@pack/shared/src/schema/auth';
+import { UserSigninRequest } from '@pack/shared/src/schema/user';
 import {
-  UserSignupRequest,
-  userSignupRequestSchema,
+  type ProtectedUser,
+  protectedUSerSchema,
 } from '@pack/shared/src/schema/user';
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
@@ -15,9 +15,9 @@ import * as UserRepository from '@/features/user/db/repository';
 import { User } from '../../user/db/schema';
 
 export const signin = async (
-  reqUser: AuthSigninRequest['body'],
+  reqUser: UserSigninRequest['body'],
 ): Promise<{
-  user: Omit<UserSignupRequest['body'], 'password'>;
+  user: ProtectedUser;
   sessionId: string;
 }> => {
   const user = await UserRepository.findByEmail(reqUser.email);
@@ -26,9 +26,7 @@ export const signin = async (
     throw new UnAuthorisedError();
   }
 
-  const strippedUser = userSignupRequestSchema.shape.body
-    .omit({ password: true, id: true })
-    .parse(user);
+  const strippedUser = protectedUSerSchema.parse(user);
 
   const sessionId = await createSession(
     strippedUser as unknown as User,

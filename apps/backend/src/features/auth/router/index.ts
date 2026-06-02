@@ -1,4 +1,4 @@
-import { authSigninRequestSchema } from '@pack/shared/src/schema/auth';
+import { userSigninRequestSchema } from '@pack/shared/src/schema/user';
 import Express from 'express';
 
 import { zodValidate } from '@/src/middleware';
@@ -10,7 +10,7 @@ export const router = Express.Router();
 router.get('/whoami', authController.whoAmi);
 router.post(
   '/signin',
-  zodValidate(authSigninRequestSchema),
+  zodValidate(userSigninRequestSchema),
   authController.signin,
 );
 

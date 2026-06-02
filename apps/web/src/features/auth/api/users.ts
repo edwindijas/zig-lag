@@ -1,5 +1,8 @@
-import type { AuthSigninRequest } from '@pack/shared/src/schema/auth';
-import type { UserSignupRequest } from '@pack/shared/src/schema/user';
+import type {
+  UserSignupRequest,
+  UserSigninRequest,
+  ProtectedUser,
+} from '@pack/shared/src/schema/user';
 
 import { apiFetch } from '@/utils/api';
 
@@ -11,10 +14,20 @@ export const createUser = async (data: UserSignupRequest): Promise<void> => {
 };
 
 export const signin = async (
-  data: AuthSigninRequest['body'],
+  data: UserSigninRequest['body'],
 ): Promise<void> => {
   await apiFetch('/api/auth/signin', {
     method: 'POST',
     body: JSON.stringify(data),
   });
+};
+
+export const getUser = async (): Promise<ProtectedUser> => {
+  const response = await apiFetch<ProtectedUser>('/api/auth/whoami', {
+    method: 'GET',
+  });
+  if (!response.success) {
+    throw new Error('Failed to fetch user data');
+  }
+  return response.getData();
 };

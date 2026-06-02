@@ -144,7 +144,7 @@ export default defineConfig([
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['error'],
       '@stylistic/max-len': ["error", { "code": 120, "ignoreComments": true, "ignoreStrings": true }],
-      "stylistic/operator-linebreak": ["error", "before"],
+      "@stylistic/operator-linebreak": ["error", "before"],
       "@stylistic/member-delimiter-style": ['error', {
         "multiline": {
           "delimiter": "semi",
@@ -152,13 +152,13 @@ export default defineConfig([
         },
         "singleline": {
           "delimiter": "semi",
-          "requireLast": false
+          "requireLast": true
         },
         "overrides": {
           "interface": {
             "multiline": {
               "delimiter": "semi",
-              "requireLast": false
+              "requireLast": true
             }
           }
         }

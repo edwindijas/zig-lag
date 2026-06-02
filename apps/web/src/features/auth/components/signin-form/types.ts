@@ -1,5 +1,5 @@
 import type { AuthSigninRequest } from '@pack/shared/src/schema/auth';
 
 export interface SigninFormProps {
-  onSubmit?: (e: AuthSigninRequest) => void
+  onSubmit?: (e: AuthSigninRequest) => void;
 }

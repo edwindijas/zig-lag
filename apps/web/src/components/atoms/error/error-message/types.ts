@@ -5,5 +5,5 @@ export interface ErrorMessageProps {
   error?: string | $ZodIssue;
   errorMessage?: string;
   errorType?: ErrorType;
-  container?: boolean
+  container?: boolean;
 }
