@@ -1,13 +1,19 @@
+import type { AuthSigninRequest } from '@pack/shared/src/schema/auth';
 import type { ReactNode } from 'react';
-import { Link } from 'react-router';
+
+import { SigninForm } from '../../components/signin-form';
+import { useSigninMutation } from '../../queries/user';
 
 export const SigninPage = (): ReactNode => {
+  const { mutate: signin } = useSigninMutation();
+
+  const handleSignin = (data: AuthSigninRequest): void => {
+    signin(data.body);
+  };
+
   return (
     <div>
-      <h1>Signin Page</h1>
-      <div>
-        <Link to="/auth/signup">Don't have an account? Sign up</Link>
-      </div>
+      <SigninForm onSubmit={handleSignin} />
     </div>
   );
 };

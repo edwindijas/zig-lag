@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 export const userSignupRequestSchema = z.object({
   body: z.object({
+    id: z.number().optional(),
     email: z.email('Enter valid email'),
     password: z
       .string('Password cannot be empty')

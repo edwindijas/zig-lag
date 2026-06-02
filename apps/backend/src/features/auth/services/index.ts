@@ -1,0 +1,53 @@
+import { AuthSigninRequest } from '@pack/shared/src/schema/auth';
+import {
+  UserSignupRequest,
+  userSignupRequestSchema,
+} from '@pack/shared/src/schema/user';
+import bcrypt from 'bcrypt';
+import { v4 as uuid } from 'uuid';
+
+import { UnAuthorisedError } from '@/src/common/errors/unauthorised-access';
+
+import { redisClient } from '@/src/infrastructure/persistence/redis-client';
+
+import * as UserRepository from '@/features/user/db/repository';
+
+import { User } from '../../user/db/schema';
+
+export const signin = async (
+  reqUser: AuthSigninRequest['body'],
+): Promise<{
+  user: Omit<UserSignupRequest['body'], 'password'>;
+  sessionId: string;
+}> => {
+  const user = await UserRepository.findByEmail(reqUser.email);
+
+  if (!user || !bcrypt.compareSync(reqUser.password, user.password)) {
+    throw new UnAuthorisedError();
+  }
+
+  const strippedUser = userSignupRequestSchema.shape.body
+    .omit({ password: true, id: true })
+    .parse(user);
+
+  const sessionId = await createSession(
+    strippedUser as unknown as User,
+    user.id,
+  );
+  return { user: strippedUser, sessionId };
+};
+
+export const createSession = async (
+  user: User,
+  id: number,
+): Promise<string> => {
+  const sessionId = uuid();
+
+  const pipeline = redisClient.multi();
+  pipeline.set(`users:sessions:${sessionId}`, id);
+  pipeline.sAdd(`users:user:${id}:sessions`, sessionId);
+  pipeline.set(`users:users:${id}:profile`, JSON.stringify(user));
+  await pipeline.exec();
+
+  return sessionId;
+};

@@ -1,4 +1,4 @@
-import type { SignupRequest } from '@pack/shared/src/schema/auth';
+import type { UserSignupRequest } from '@pack/shared/src/schema/user';
 import { type ReactNode } from 'react';
 
 import { SignupForm } from '../../components/signup-form/signup';
@@ -13,7 +13,7 @@ import {
 export const SignupPage = (): ReactNode => {
   const { mutate: createUser } = useCreateUserMutation();
 
-  const createAccount = (data: SignupRequest): void => {
+  const createAccount = (data: UserSignupRequest): void => {
     createUser(data);
   };
 

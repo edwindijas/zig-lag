@@ -21,6 +21,8 @@ export const zodValidate
         next();
       }
       catch (error) {
+      // eslint-disable-next-line no-console
+        console.log(req.body, error);
         if (error instanceof ZodError) {
           res.status(400).json({
             message: 'Validation failed',

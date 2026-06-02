@@ -27,7 +27,10 @@ export default defineConfig([
       stylistic.configs.recommended,
     ],
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      },
       parser: tseslint.parser,
       parserOptions: {
         projectService: {
@@ -65,7 +68,7 @@ export default defineConfig([
       'eol-last': ['error', 'always'],
       'object-curly-spacing': ['error', 'always'],
       quotes: [2, 'single', { avoidEscape: true }],
-      indent: ['error', 2],
+      indent: ['off', 2],
 
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 
@@ -141,13 +144,14 @@ export default defineConfig([
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['error'],
       '@stylistic/max-len': ["error", { "code": 120, "ignoreComments": true, "ignoreStrings": true }],
+      "stylistic/operator-linebreak": ["error", "before"],
       "@stylistic/member-delimiter-style": ['error', {
         "multiline": {
-          "delimiter": "comma",
+          "delimiter": "semi",
           "requireLast": true
         },
         "singleline": {
-          "delimiter": "comma",
+          "delimiter": "semi",
           "requireLast": false
         },
         "overrides": {
