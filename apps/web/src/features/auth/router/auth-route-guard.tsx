@@ -14,7 +14,7 @@ export const AuthRouteGuard = ({ children }: PropsWithChildren): ReactNode => {
     return <div>Loading...</div>;
   }
 
-  if (user && matches.some((match) => match.pathname === '/auth/signin')) {
+  if (user && matches.some((match) => match.pathname === '/auth/signin' || match.pathname === '/auth/signup')) {
     return <Navigate to="/" />;
   }
 
