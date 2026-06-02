@@ -1,13 +1,11 @@
+import type { ProtectedUser } from '@pack/shared/src/schema/user';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import type { AuthState, AuthUser } from '../models/user';
+import type { AuthState } from '../models/user';
 
 export const reducers = {
-  setUser: (state: AuthState, action: PayloadAction<AuthUser>) => {
+  setUser: (state: AuthState, action: PayloadAction<ProtectedUser>) => {
     state.user = action.payload;
-  },
-  setIsAuthenticated: (state: AuthState, action: PayloadAction<boolean>) => {
-    state.isAuthenticated = action.payload;
   },
   setIsLoading: (state: AuthState, action: PayloadAction<boolean>) => {
     state.isLoading = action.payload;

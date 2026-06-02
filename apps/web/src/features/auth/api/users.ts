@@ -14,12 +14,16 @@ export const createUser = async (data: UserSignupRequest): Promise<void> => {
 };
 
 export const signin = async (
-  data: UserSigninRequest['body'],
-): Promise<void> => {
-  await apiFetch('/api/auth/signin', {
+  data: UserSigninRequest,
+): Promise<ProtectedUser> => {
+  const response = await apiFetch<ProtectedUser>('/api/auth/signin', {
     method: 'POST',
-    body: JSON.stringify(data),
+    body: JSON.stringify(data.body),
   });
+  if (!response.success) {
+    throw new Error('Failed to sign in');
+  }
+  return response.getData();
 };
 
 export const getUser = async (): Promise<ProtectedUser> => {

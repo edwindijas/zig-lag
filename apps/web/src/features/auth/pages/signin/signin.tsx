@@ -1,14 +1,21 @@
-import type { AuthSigninRequest } from '@pack/shared/src/schema/auth';
+import type { UserSigninRequest } from '@pack/shared/src/schema/user';
 import type { ReactNode } from 'react';
+
+import { useDispatch } from 'react-redux';
 
 import { SigninForm } from '../../components/signin-form';
 import { useSigninMutation } from '../../queries/user';
+import { setUser } from '../../store/auth.slice';
 
 export const SigninPage = (): ReactNode => {
-  const { mutate: signin } = useSigninMutation();
+  const dispatch = useDispatch();
+  const { mutateAsync: signin, data: user } = useSigninMutation();
 
-  const handleSignin = (data: AuthSigninRequest): void => {
-    signin(data.body);
+  const handleSignin = async (data: UserSigninRequest): Promise<void> => {
+    await signin(data);
+    if (user) {
+      dispatch(setUser(user));
+    }
   };
 
   return (
