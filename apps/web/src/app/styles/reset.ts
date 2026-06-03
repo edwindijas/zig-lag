@@ -26,11 +26,17 @@ export const GlobalResetCSS = createGlobalStyle`
   body{
     min-block-size: 100%;
     font-size: 1.6rem;
+     background-color: #f0f0f0;
   }
 
   body, html, svg, #root {
     width: 100%;
     height: 100%;
+  }
+
+  svg {
+    color: inherit;
+    fill: inherit;
   }
 
   button {
@@ -54,10 +60,6 @@ export const GlobalResetCSS = createGlobalStyle`
 
   svg {
     max-inline-size: 100%;
-  }
-
-  svg:not([fill]) {
-    fill: currentColor;
   }
 
   button, a {

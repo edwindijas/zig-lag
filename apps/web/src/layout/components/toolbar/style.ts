@@ -31,6 +31,7 @@ export const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   min-width: 6rem;
+  fill: #888;
   svg {
     height: 3rem;
     width: 3rem;

@@ -15,6 +15,11 @@ export const StyledMain = styled.main`
 
 export const StyledContentContainer = styled.div`
   flex: 1;
+  margin-right: 3rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 1.8rem;
+  overflow: auto;
 `;
 
 export const StyledToolbarContainer = styled.div`
