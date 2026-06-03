@@ -1,7 +1,8 @@
 import { useState, type ReactElement } from 'react';
 
+import { UserMenu } from '../user-menu/user-menu';
+
 import { StyledRightTools, StyledToolsContainer, StyledTopMenu, StyledUserAvatar, StyledUserButton, StyledUserName } from './style';
-import { UserMenu } from './user-menu';
 
 export const Toolbar = (): ReactElement => {
   const [isUserMenuActive, setIsUserMenuActive] = useState(false);

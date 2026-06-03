@@ -15,7 +15,7 @@ export default defineConfig({
       lintOnStart: true,
       emitErrorAsWarning: true,
     }),
-    svgr,
+    svgr(),
   ],
   resolve: {
     alias: {
@@ -24,6 +24,7 @@ export default defineConfig({
       '@/app': '/src/app',
       '@/components': '/src/components',
       '@/hooks': '/src/hooks',
+      '@/assets': '/src/assets',
       '@/utils': '/src/utils',
     },
   },

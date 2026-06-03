@@ -1,4 +1,3 @@
-import { Link } from 'react-router';
 import { styled } from 'styled-components';
 
 export const StyledTopMenu = styled.header`
@@ -25,24 +24,6 @@ export const StyledRightTools = styled.div`
   justify-content: flex-end;
 `;
 
-export const StyledUserMenu = styled.div<{ $active: boolean }>`
-  position: absolute;
-  top: 60px;
-  right: 0;
-  overflow: hidden;
-  background-color: #fff;
-  height: ${({ $active }) => (!$active ? '0' : '20rem')};
-  width: 25rem;
-`;
-
-export const StyledUserMenuContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  height: 100%;
-`;
-
 export const StyledUserButton = styled.button`
   display: flex;
   align-items: center;
@@ -58,35 +39,3 @@ export const StyledUserAvatar = styled.figure`
 `;
 
 export const StyledUserName = styled.span``;
-
-export const StyledUserMenuList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-`;
-
-export const StyledUserMenuItem = styled.li`
-  display: flex;
-  height: 3.5rem;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-`;
-
-export const StyledUserMenuLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-`;
-
-export const StyledMenuUser = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-export const StyledUserMenuName = styled.p`
-  font-weight: bold;
-`;
-
-export const StyledUserMenuButton = styled.button`
-  background: none;
-`;
