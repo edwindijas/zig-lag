@@ -7,7 +7,7 @@ import { useMutation, type UseMutationResult } from '@tanstack/react-query';
 
 import type { ApiError } from '@/src/utils/api/types';
 
-import { createUser, signin } from '../api';
+import { createUser, signin, signout } from '../api';
 
 export const useCreateUserMutation = (): UseMutationResult<
   unknown,
@@ -26,5 +26,15 @@ export const useSigninMutation = (): UseMutationResult<
 > => {
   return useMutation({
     mutationFn: signin,
+  });
+};
+
+export const useSignoutMutation = (): UseMutationResult<
+  void,
+  ApiError,
+  void
+> => {
+  return useMutation({
+    mutationFn: signout,
   });
 };

@@ -14,5 +14,7 @@ router.post(
   authController.signin,
 );
 
+router.post('/signout', authController.signout);
+
 export const authRouter = Express.Router();
 authRouter.use('/auth', router);

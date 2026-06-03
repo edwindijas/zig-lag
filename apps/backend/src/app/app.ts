@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import Express from 'express';
 
-import { errorHandler } from '@/middleware/';
+import { errorHandler, responseFormatter } from '@/middleware/';
 
 import { CONFIG_ENV_VAR_NAMES } from '../common/const/config';
 
@@ -22,12 +22,14 @@ const corsOptions = {
 
 app.use(Express.json());
 app.use(cookieParser());
+app.use(cors(corsOptions));
+
+app.use(responseFormatter);
+app.use(insertUser);
+app.use(apiRouter);
 
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
 
-app.use(cors(corsOptions));
-app.use(insertUser);
-app.use(apiRouter);
 app.use(errorHandler);

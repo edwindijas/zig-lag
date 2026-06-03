@@ -4,7 +4,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import type { AuthState } from '../models/user';
 
 export const reducers = {
-  setUser: (state: AuthState, action: PayloadAction<ProtectedUser>) => {
+  setUser: (state: AuthState, action: PayloadAction<ProtectedUser | null>) => {
     state.user = action.payload;
   },
   setIsLoading: (state: AuthState, action: PayloadAction<boolean>) => {

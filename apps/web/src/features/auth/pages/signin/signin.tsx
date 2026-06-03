@@ -9,10 +9,10 @@ import { setUser } from '../../store/auth.slice';
 
 export const SigninPage = (): ReactNode => {
   const dispatch = useDispatch();
-  const { mutateAsync: signin, data: user } = useSigninMutation();
+  const { mutateAsync: signin } = useSigninMutation();
 
   const handleSignin = async (data: UserSigninRequest): Promise<void> => {
-    await signin(data);
+    const user = await signin(data);
     if (user) {
       dispatch(setUser(user));
     }

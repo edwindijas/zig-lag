@@ -11,5 +11,10 @@ export const useRouteHandle = (): Required<AppRouteHandle> => {
 
   return {
     requiresAuth: handle.requiresAuth ?? true,
+    shell: {
+      fullscreen: handle.shell?.fullscreen ?? false,
+      topBar: handle.shell?.topBar ?? true,
+      sideMenu: handle.shell?.sideMenu ?? true,
+    },
   };
 };

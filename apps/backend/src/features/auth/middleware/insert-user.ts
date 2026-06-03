@@ -1,8 +1,7 @@
+import { ProtectedUser } from '@pack/shared/src/schema/user';
 import { NextFunction, Request, Response } from 'express';
 
 import { redisClient } from '@/src/infrastructure/persistence/redis-client';
-
-import { User } from '../../user/db/schema';
 
 export const insertUser = async (
   req: Request,
@@ -16,10 +15,10 @@ export const insertUser = async (
   }
 
   const userId = await redisClient.get(`users:sessions:${sessionId}`);
-  const user = await redisClient.get(`users:users:${userId}:profile`);
+  const user = await redisClient.get(`users:user:${userId}:profile`);
 
   if (user) {
-    req.user = JSON.parse(user) as User;
+    req.user = JSON.parse(user) as ProtectedUser;
   }
 
   next();

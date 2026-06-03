@@ -17,7 +17,7 @@ export const userSchema = z.object({
     .regex(/^[a-zA-Z\s\-']+$/, 'Name contains invalid characters'),
 });
 
-export const protectedUSerSchema = userSchema.omit({
+export const protectedUserSchema = userSchema.omit({
   password: true,
   id: true,
 });
@@ -32,7 +32,7 @@ export const userSigninRequestSchema = z.object({
 
 export type User = z.infer<typeof userSchema>;
 
-export type ProtectedUser = z.infer<typeof protectedUSerSchema>;
+export type ProtectedUser = z.infer<typeof protectedUserSchema>;
 
 export type UserSignupRequest = z.infer<typeof userSignupRequestSchema>;
 

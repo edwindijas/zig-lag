@@ -1,7 +1,7 @@
 import { UserSigninRequest } from '@pack/shared/src/schema/user';
 import {
   type ProtectedUser,
-  protectedUSerSchema,
+  protectedUserSchema,
 } from '@pack/shared/src/schema/user';
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
@@ -26,13 +26,27 @@ export const signin = async (
     throw new UnAuthorisedError();
   }
 
-  const strippedUser = protectedUSerSchema.parse(user);
+  const strippedUser = protectedUserSchema.parse(user);
 
   const sessionId = await createSession(
     strippedUser as unknown as User,
     user.id,
   );
   return { user: strippedUser, sessionId };
+};
+
+export const signout = async (sessionId: string): Promise<void> => {
+  const userId = await redisClient.get(`users:sessions:${sessionId}`);
+  if (!userId) {
+    throw new UnAuthorisedError();
+  }
+  await redisClient.del(`users:sessions:${sessionId}`);
+  await redisClient.sRem(`users:user:${userId}:sessions`, sessionId);
+
+  const sessions = await redisClient.sMembers(`users:user:${userId}:sessions`);
+  if (sessions.length === 0) {
+    await redisClient.del(`users:user:${userId}:profile`);
+  }
 };
 
 export const createSession = async (
@@ -44,7 +58,7 @@ export const createSession = async (
   const pipeline = redisClient.multi();
   pipeline.set(`users:sessions:${sessionId}`, id);
   pipeline.sAdd(`users:user:${id}:sessions`, sessionId);
-  pipeline.set(`users:users:${id}:profile`, JSON.stringify(user));
+  pipeline.set(`users:user:${id}:profile`, JSON.stringify(user));
   await pipeline.exec();
 
   return sessionId;

@@ -10,12 +10,18 @@ export const authRoutes: RouteObject = {
       Component: SigninPageLoader,
       handle: {
         requiresAuth: false,
+        shell: {
+          fullscreen: true,
+        },
       },
     },
     {
       path: 'signup',
       Component: SignupPageLoader,
       handle: {
+        shell: {
+          fullscreen: true,
+        },
         requiresAuth: false,
       },
     },

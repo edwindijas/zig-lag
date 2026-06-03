@@ -1,3 +1,4 @@
+import type { AuthWhoamiResponse } from '@pack/shared/src/schema/auth';
 import type {
   UserSignupRequest,
   UserSigninRequest,
@@ -15,23 +16,30 @@ export const createUser = async (data: UserSignupRequest): Promise<void> => {
 
 export const signin = async (
   data: UserSigninRequest,
-): Promise<ProtectedUser> => {
-  const response = await apiFetch<ProtectedUser>('/api/auth/signin', {
+): Promise<ProtectedUser | null> => {
+  const response = await apiFetch<AuthWhoamiResponse>('/api/auth/signin', {
     method: 'POST',
     body: JSON.stringify(data.body),
   });
   if (!response.success) {
     throw new Error('Failed to sign in');
   }
-  return response.getData();
+  return response.getData().user;
 };
 
-export const getUser = async (): Promise<ProtectedUser> => {
-  const response = await apiFetch<ProtectedUser>('/api/auth/whoami', {
+export const getUser = async (): Promise<ProtectedUser | null> => {
+  const response = await apiFetch<AuthWhoamiResponse>('/api/auth/whoami', {
     method: 'GET',
   });
   if (!response.success) {
     throw new Error('Failed to fetch user data');
   }
-  return response.getData();
+
+  return response.getData().user;
+};
+
+export const signout = async (): Promise<void> => {
+  await apiFetch('/api/auth/signout', {
+    method: 'POST',
+  });
 };

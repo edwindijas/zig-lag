@@ -1,6 +1,5 @@
+import type { ApiFetchResponse as ApiResponse } from '@pack/shared/src/types/api';
 import { produce } from 'immer';
-
-import type { ApiResponse } from './types';
 
 export const apiFetch = async <T>(
   path: string,
@@ -27,6 +26,11 @@ export const apiFetch = async <T>(
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`);
   }
-  const data = await response.json();
-  return { data, success: true, getData: () => data };
+  const responseJson = (await response.json()) as ApiResponse<T>;
+
+  if (responseJson.success === true) {
+    return { ...responseJson, getData: () => responseJson.data };
+  }
+
+  return { ...responseJson, getError: () => responseJson.error };
 };
