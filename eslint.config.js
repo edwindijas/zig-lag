@@ -137,14 +137,17 @@ export default defineConfig([
       '@stylistic/jsx-curly-brace-presence': 'error',
       '@eslint-react/no-missing-component-display-name': 'warn',
       '@eslint-react/no-missing-context-display-name': 'warn',
-      'indent': 'off',
+      'indent': ['error', 2, { SwitchCase: 1 }],
+
       '@stylistic/jsx-self-closing-comp': 'error',
       '@stylistic/semi': 'off',
+      '@stylistic/indent': 'off',
       '@stylistic/arrow-parens': ['error', 'always'],
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['error'],
       '@stylistic/max-len': ["error", { "code": 120, "ignoreComments": true, "ignoreStrings": true }],
-      "@stylistic/operator-linebreak": ["error", "before"],
+      "@stylistic/operator-linebreak": ["error", "after", { "overrides": { "?": "before", ":": "before" } }],
+      "@stylistic/brace-style": ["error", "1tbs", { "allowSingleLine": true }],
       "@stylistic/member-delimiter-style": ['error', {
         "multiline": {
           "delimiter": "semi",
@@ -152,7 +155,7 @@ export default defineConfig([
         },
         "singleline": {
           "delimiter": "semi",
-          "requireLast": true
+          "requireLast": false
         },
         "overrides": {
           "interface": {

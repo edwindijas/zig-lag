@@ -13,13 +13,13 @@ export const FormField = ({ errors, container, ...inputProps }: FormFieldProps):
       <BasicInput {...inputProps} />
       { errors && errors.length > 0
         ? (
-            <StyledErrorContainer>
-              {errors.map((error, key) => {
+          <StyledErrorContainer>
+            {errors.map((error, key) => {
               // eslint-disable-next-line @eslint-react/no-array-index-key
-                return <ErrorMessage container={container} key={key} error={error} />;
-              })}
-            </StyledErrorContainer>
-          )
+              return <ErrorMessage container={container} key={key} error={error} />;
+            })}
+          </StyledErrorContainer>
+        )
         : null}
     </StyledFormField>
   );

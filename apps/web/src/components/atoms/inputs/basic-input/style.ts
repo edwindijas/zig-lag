@@ -6,7 +6,7 @@ export const StyledBasicInputWrapper = styled.label`
   position: relative;
 `;
 
-export const StyledBasicInputTextLabel = styled.span<{ $isActive: boolean; }>`
+export const StyledBasicInputTextLabel = styled.span<{ $isActive: boolean }>`
   display: flex;
   top: 0rem;
   position: absolute;
@@ -18,7 +18,7 @@ export const StyledBasicInputTextLabel = styled.span<{ $isActive: boolean; }>`
   ${({ $isActive }) => $isActive && 'font-size: 1rem; top: -3rem; color: #333;'}
 `;
 
-export const StyledBasicInput = styled.input<{ $active: boolean; }>`
+export const StyledBasicInput = styled.input<{ $active: boolean }>`
   display: flex;
   width: 100%;
   padding: 0.6rem 1.2rem;

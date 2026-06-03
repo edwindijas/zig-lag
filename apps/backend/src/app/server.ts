@@ -1,4 +1,7 @@
-import { getEnvVariables, validateEnvVariables } from '@pack/shared/src/helpers/config/env';
+import {
+  getEnvVariables,
+  validateEnvVariables,
+} from '@pack/shared/src/helpers/config/env';
 
 import { CONFIG_ENV_VAR_NAMES } from '@/src/common/const/config';
 
@@ -16,8 +19,7 @@ const main = (): void => {
     if (error) {
       // eslint-disable-next-line no-console
       console.log(error);
-    }
-    else {
+    } else {
       // eslint-disable-next-line no-console
       console.log(`Server is running on http://${SERVER_HOST}:${SERVER_PORT}`);
     }

@@ -4,8 +4,8 @@ import { useMemo, type ReactNode } from 'react';
 import { StyledErrorMessage } from './style';
 import type { ErrorMessageProps } from './types';
 
-export const ErrorMessage
-  = ({ error, errorMessage, errorType = ERROR_TYPE.error, container = false }: ErrorMessageProps): ReactNode => {
+export const ErrorMessage =
+  ({ error, errorMessage, errorType = ERROR_TYPE.error, container = false }: ErrorMessageProps): ReactNode => {
     const message = useMemo(() => {
       if (errorMessage) {
         return errorMessage;
