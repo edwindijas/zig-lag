@@ -18,26 +18,3 @@ export * from './power-settings-new';
 export * from './search';
 export * from './stacks';
 export * from './sync-alt';
-
-export const icons = [
-  'IconArrowBack',
-  'IconAssignment',
-  'IconBolt',
-  'IconCalendarMonth',
-  'IconChevronLeft',
-  'IconClose',
-  'IconCreateNewFolder',
-  'IconDelete',
-  'IconFileOpen',
-  'IconFootprint',
-  'IconHome',
-  'IconLogout',
-  'IconMenu',
-  'IconMoreVert',
-  'IconPageInfo',
-  'IconPerson',
-  'IconPowerSettingsNew',
-  'IconSearch',
-  'IconStacks',
-  'IconSyncAlt',
-];

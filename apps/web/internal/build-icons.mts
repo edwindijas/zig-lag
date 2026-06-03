@@ -84,8 +84,8 @@ files.forEach((file) => {
   removeFillSvg(file);
 });
 
-exportStr += `\nexport const icons = ${JSON.stringify(compNames, undefined, '  ').replaceAll('"', "'")}`;
-
-exportStr = exportStr.substring(0, exportStr.length - 2) + ',\n];\n';
-
 fs.writeFileSync(path.join(iconsComponentDir, 'index.ts'), exportStr);
+fs.writeFileSync(
+  path.join(iconsComponentDir, 'icons.json'),
+  JSON.stringify(compNames, undefined, '  '),
+);
