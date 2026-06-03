@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { JSDOM } from 'jsdom';
 
 const srcDir = path.join(import.meta.dirname, '../src');
 
@@ -62,10 +63,25 @@ const addFileToExport = (file: string) => {
   compNames.push(`Icon${toPascalCase(fileNameWithoutExt)}`);
 };
 
+export const removeFillSvg = (fileName: string) => {
+  const filePath = path.join(svgDir, fileName);
+  const svgText = fs.readFileSync(filePath, 'utf8');
+
+  const dom = new JSDOM(svgText, { contentType: 'image/svg+xml' });
+  const document = dom.window.document;
+
+  // Remove fill from all elements
+  const elements = document.querySelectorAll('[fill]');
+  elements.forEach((el) => el.removeAttribute('fill'));
+
+  fs.writeFileSync(filePath, document.documentElement.outerHTML, 'utf8');
+};
+
 files.forEach((file) => {
   const finalFile = renameFileIfNeeded(file);
   generateComponent(finalFile);
   addFileToExport(file);
+  removeFillSvg(file);
 });
 
 exportStr += `\nexport const icons = ${JSON.stringify(compNames, undefined, '  ').replaceAll('"', "'")}`;
