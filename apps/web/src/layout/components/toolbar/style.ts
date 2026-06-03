@@ -54,6 +54,7 @@ export const StyledUserAvatar = styled.figure`
   height: 4rem;
   border-radius: 50%;
   background-color: #ccc;
+  flex-shrink: 0;
 `;
 
 export const StyledUserName = styled.span``;

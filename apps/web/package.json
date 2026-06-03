@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build:icons": "node ./internal/build-icons.mts"
   },
   "dependencies": {
     "@pack/shared": "*",
@@ -32,6 +33,7 @@
     "eslint-plugin-storybook": "^10.4.0",
     "globals": "^17.5.0",
     "storybook": "^10.4.0",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "vite-plugin-svgr": "^5.2.0"
   }
 }

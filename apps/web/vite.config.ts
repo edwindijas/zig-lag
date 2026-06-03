@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import eslint from 'vite-plugin-eslint2';
+import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 // eslint-disable-next-line import-x/no-default-export
@@ -14,6 +15,7 @@ export default defineConfig({
       lintOnStart: true,
       emitErrorAsWarning: true,
     }),
+    svgr,
   ],
   resolve: {
     alias: {

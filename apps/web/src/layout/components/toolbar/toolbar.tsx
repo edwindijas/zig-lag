@@ -17,7 +17,6 @@ export const Toolbar = (): ReactElement => {
         <div>Search</div>
         <StyledRightTools>
           <div>Notifications</div>
-          <div>User Menu</div>
           <StyledUserButton type="button" onClick={toggleUserMenu}>
             <StyledUserAvatar />
             <StyledUserName>Edwin Chiwona</StyledUserName>

@@ -1,0 +1,43 @@
+export * from './arrow-back';
+export * from './assignment';
+export * from './bolt';
+export * from './calendar-month';
+export * from './chevron-left';
+export * from './close';
+export * from './create-new-folder';
+export * from './delete';
+export * from './file-open';
+export * from './footprint';
+export * from './home';
+export * from './logout';
+export * from './menu';
+export * from './more-vert';
+export * from './page-info';
+export * from './person';
+export * from './power-settings-new';
+export * from './search';
+export * from './stacks';
+export * from './sync-alt';
+
+export const icons = [
+  'IconArrowBack',
+  'IconAssignment',
+  'IconBolt',
+  'IconCalendarMonth',
+  'IconChevronLeft',
+  'IconClose',
+  'IconCreateNewFolder',
+  'IconDelete',
+  'IconFileOpen',
+  'IconFootprint',
+  'IconHome',
+  'IconLogout',
+  'IconMenu',
+  'IconMoreVert',
+  'IconPageInfo',
+  'IconPerson',
+  'IconPowerSettingsNew',
+  'IconSearch',
+  'IconStacks',
+  'IconSyncAlt',
+];
