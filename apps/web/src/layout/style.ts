@@ -16,3 +16,7 @@ export const StyledMain = styled.main`
 export const StyledContentContainer = styled.div`
   flex: 1;
 `;
+
+export const StyledToolbarContainer = styled.div`
+  position: relative;
+`;

@@ -80,8 +80,8 @@ export const removeFillSvg = (fileName: string) => {
 files.forEach((file) => {
   const finalFile = renameFileIfNeeded(file);
   generateComponent(finalFile);
-  addFileToExport(file);
-  removeFillSvg(file);
+  addFileToExport(finalFile);
+  removeFillSvg(finalFile);
 });
 
 fs.writeFileSync(path.join(iconsComponentDir, 'index.ts'), exportStr);

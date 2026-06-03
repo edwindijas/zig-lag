@@ -3,6 +3,8 @@ import { styled } from 'styled-components';
 export const StyledTopMenu = styled.header`
   height: 60px;
   background-color: #f0f0f0;
+  position: relative;
+  z-index: 999999;
 `;
 
 export const StyledToolsContainer = styled.div`
@@ -20,14 +22,25 @@ export const StyledToolsContainer = styled.div`
 
 export const StyledRightTools = styled.div`
   display: flex;
-  gap: 20px;
   justify-content: flex-end;
+  height: 100%;
 `;
 
-export const StyledUserButton = styled.button`
+export const StyledButton = styled.button`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  min-width: 6rem;
+  svg {
+    height: 3rem;
+    width: 3rem;
+  }
+`;
+
+export const StyledUserButton = styled(StyledButton)`
+  gap: 2rem;
+  padding: 0 2rem;
+  flex-shrink: 0;
 `;
 
 export const StyledUserAvatar = styled.figure`
@@ -38,4 +51,11 @@ export const StyledUserAvatar = styled.figure`
   flex-shrink: 0;
 `;
 
-export const StyledUserName = styled.span``;
+export const StyleTopMenuWrapper = styled.div`
+  position: relative;
+`;
+
+export const StyledUserName = styled.span`
+  text-transform: capitalize;
+  color: #444;
+`;

@@ -1,29 +1,23 @@
-import { useState, type ReactElement } from 'react';
+import { type ReactElement } from 'react';
 
-import { UserMenu } from '../user-menu/user-menu';
+import { IconNotifications } from '@/src/components/atoms/icons';
 
-import { StyledRightTools, StyledToolsContainer, StyledTopMenu, StyledUserAvatar, StyledUserButton, StyledUserName } from './style';
+import { StyledButton, StyledRightTools, StyledToolsContainer, StyledTopMenu, StyledUserAvatar, StyledUserButton, StyledUserName } from './style';
+import type { ToolbarProps } from './types';
 
-export const Toolbar = (): ReactElement => {
-  const [isUserMenuActive, setIsUserMenuActive] = useState(false);
-
-  const toggleUserMenu = (): void => {
-    setIsUserMenuActive((prev) => !prev);
-  };
-
+export const Toolbar = ({ onUserMenuClick, user }: ToolbarProps): ReactElement => {
   return (
     <StyledTopMenu>
       <StyledToolsContainer>
         <div>Logo</div>
         <div>Search</div>
         <StyledRightTools>
-          <div>Notifications</div>
-          <StyledUserButton type="button" onClick={toggleUserMenu}>
+          <StyledButton><IconNotifications /></StyledButton>
+          <StyledUserButton type="button" onClick={onUserMenuClick}>
             <StyledUserAvatar />
-            <StyledUserName>Edwin Chiwona</StyledUserName>
+            <StyledUserName>{ user?.name ?? 'Hi Stranger' }</StyledUserName>
           </StyledUserButton>
         </StyledRightTools>
-        <UserMenu active={isUserMenuActive} />
       </StyledToolsContainer>
     </StyledTopMenu>
   );
