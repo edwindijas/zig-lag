@@ -22,8 +22,8 @@ export const UserMenu = ({ active, user }: UserMenuProps): ReactNode => {
   }
 
   return (
-    <StyledUserMenu>
-      <StyledUserMenuContainer $active={active} $height={height} ref={contentRef}>
+    <StyledUserMenu $active={active} $height={height} ref={contentRef}>
+      <StyledUserMenuContainer>
         <StyledMenuUser>
           <StyledUserAvatar />
           <StyledUserMenuName>{user.name}</StyledUserMenuName>

@@ -57,31 +57,29 @@ export const StyledUserMenuButton = styled.button`
   width: 100%;
 `;
 
-export const StyledUserMenu = styled.div`
+export const StyledUserMenu = styled.div<{ $height: number; $active: boolean }>`
   --transform-time: 0.8s;
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
-  width: 90%;
-  margin: 0 auto;
+  margin: 0 3rem;
+  transition: top 1s;
+  top: ${({ $height, $active }) => (!$active ? -($height / 10 + 1.4) : 6)}rem;
   z-index: 999998;
 `;
 
-export const StyledUserMenuContainer = styled.div<{
-  $height: number;
-  $active: boolean;
-}>`
+export const StyledUserMenuContainer = styled.div`
   display: flex;
   flex-direction: column;
-  top: ${({ $height, $active }) => (!$active ? -($height / 10 + 1.4) : 6.4)}rem;
   border: 1px solid #eee;
   width: 25rem;
+  background-color: #fff;
   box-shadow: 1px 5px 10px -2px #888;
   border-radius: 0 0 1rem 1rem;
-  transition: top 1s;
   margin: 0 0 0 auto;
   position: relative;
+  right: 1.5rem;
 `;
 
 export const StyledUserMenuList = styled.ul`

@@ -20,7 +20,8 @@ export const GlobalResetCSS = createGlobalStyle`
     font-size: 10px;
     -webkit-font-smoothing: antialiased;
         block-size: 100%;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: -apple-system-body, ui-sans-serif, -apple-system, "system-ui", "Segoe UI", Helvetica,
+     "Apple Color Emoji", Arial, "sans-serif", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 
   body{

@@ -21,15 +21,16 @@ export const StyledSidebarMenuLink = styled(NavLink)`
   gap: 1rem;
   align-items: center;
   height: 4.6rem;
-  color: #666;
-  fill: #666;
+  color: #555;
+  fill: #555;
   border-block: 0.1rem solid transparent;
-  font-weight: 600;
+  font-weight: 400;
   &.active {
     background-color: #fff;
     box-shadow: 0 0 1rem -0.5rem #ccc;
     color: #222;
     fill: #222;
+    font-weight: 500;
   }
 `;
 
