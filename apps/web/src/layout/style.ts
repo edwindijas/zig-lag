@@ -17,9 +17,10 @@ export const StyledContentContainer = styled.div`
   flex: 1;
   margin-right: 3rem;
   margin-bottom: 1rem;
-  background-color: #fff;
+  background-color: #f8f8f9;
   border-radius: 1.8rem;
   overflow: auto;
+  border: 1px solid #cacacc;
 `;
 
 export const StyledToolbarContainer = styled.div`

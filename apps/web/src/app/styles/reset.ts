@@ -26,7 +26,7 @@ export const GlobalResetCSS = createGlobalStyle`
   body{
     min-block-size: 100%;
     font-size: 1.6rem;
-     background-color: #f0f0f0;
+     background-color: #e2e2e9;
   }
 
   body, html, svg, #root {

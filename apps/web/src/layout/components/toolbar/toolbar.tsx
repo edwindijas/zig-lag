@@ -1,21 +1,34 @@
 import { type ReactElement } from 'react';
 
-import { IconNotifications } from '@/src/components/atoms/icons';
+import { IconLogo, IconMoreVert, IconNotifications, IconSearch } from '@/src/components/atoms/icons';
 
-import { StyledButton, StyledRightTools, StyledToolsContainer, StyledTopMenu, StyledUserAvatar, StyledUserButton, StyledUserName } from './style';
+import { ToolbarSearch } from '../search-bar';
+
+import { StyledButton, StyledLeftPane, StyledLogo, StyledLogoLink, StyledLogoText, StyledMoreIcon, StyledRightTools, StyledSearchButton, StyledToolsContainer, StyledTopMenu, StyledUserAvatar, StyledUserButton, StyledUserName } from './style';
 import type { ToolbarProps } from './types';
 
 export const Toolbar = ({ onUserMenuClick, user }: ToolbarProps): ReactElement => {
   return (
     <StyledTopMenu>
       <StyledToolsContainer>
-        <div>Logo</div>
-        <div>Search</div>
+        <StyledLeftPane>
+          <StyledLogoLink to="/">
+            <StyledLogo>
+              <IconLogo />
+            </StyledLogo>
+            <StyledLogoText>Lycode</StyledLogoText>
+          </StyledLogoLink>
+        </StyledLeftPane>
+        <ToolbarSearch />
         <StyledRightTools>
+          <StyledSearchButton><IconSearch /></StyledSearchButton>
           <StyledButton><IconNotifications /></StyledButton>
           <StyledUserButton type="button" onClick={onUserMenuClick}>
             <StyledUserAvatar />
             <StyledUserName>{ user?.name ?? 'Hi Stranger' }</StyledUserName>
+            <StyledMoreIcon>
+              <IconMoreVert />
+            </StyledMoreIcon>
           </StyledUserButton>
         </StyledRightTools>
       </StyledToolsContainer>

@@ -1,7 +1,15 @@
+import {
+  IconBugReport,
+  IconGroups3,
+  IconHome,
+  IconMediation,
+  IconStacks,
+} from '../components/atoms/icons';
+
 export const MenuItems = [
-  { name: 'Home', path: '/' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Tracks', path: '/tracks' },
-  { name: 'Issues', path: '/issues' },
-  { name: 'AI Team', path: '/ai-team' },
+  { name: 'Home', path: '/', icon: IconHome },
+  { name: 'Projects', path: '/projects', icon: IconStacks },
+  { name: 'Tracks', path: '/tracks', icon: IconMediation },
+  { name: 'Issues', path: '/issues', icon: IconBugReport },
+  { name: 'AI Team', path: '/ai-team', icon: IconGroups3 },
 ];
