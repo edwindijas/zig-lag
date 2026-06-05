@@ -11,5 +11,5 @@ export const MenuItems = [
   { name: 'Projects', path: '/projects', icon: IconStacks },
   { name: 'Tracks', path: '/tracks', icon: IconMediation },
   { name: 'Issues', path: '/issues', icon: IconBugReport },
-  { name: 'AI Team', path: '/ai-team', icon: IconGroups3 },
+  { name: 'My Team', path: '/my-team', icon: IconGroups3 },
 ];

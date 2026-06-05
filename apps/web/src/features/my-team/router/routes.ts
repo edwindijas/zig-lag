@@ -7,7 +7,7 @@ export const myTeamRoutes: RouteObject = {
   children: [
     {
       path: '',
-      loader: MyTeamHomePageLoader,
+      Component: MyTeamHomePageLoader,
     },
   ],
 };

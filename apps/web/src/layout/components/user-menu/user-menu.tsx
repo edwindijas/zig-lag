@@ -30,15 +30,15 @@ export const UserMenu = ({ active, user }: UserMenuProps): ReactNode => {
         </StyledMenuUser>
         <StyledUserMenuList>
           <StyledUserMenuItem>
-            <StyledUserMenuLink to="/profile">
+            <StyledUserMenuLink to="/settings/profile">
               <IconPerson />
-              <span>Profile</span>
+              <span>Profile preferences</span>
             </StyledUserMenuLink>
           </StyledUserMenuItem>
           <StyledUserMenuItem>
-            <StyledUserMenuLink to="/settings">
+            <StyledUserMenuLink to="/settings/account">
               <IconSettings />
-              <span>Settings</span>
+              <span>Account settings</span>
             </StyledUserMenuLink>
           </StyledUserMenuItem>
           <StyledUserMenuItem>

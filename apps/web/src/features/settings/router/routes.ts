@@ -7,11 +7,11 @@ export const settingsRoutes: RouteObject = {
   path: '/settings',
   children: [
     {
-      path: '/profile',
+      path: 'profile',
       Component: ProfileSettingsPageLoader,
     },
     {
-      path: '/account',
+      path: 'account',
       Component: AccountSettingsPageLoader,
     },
   ],
