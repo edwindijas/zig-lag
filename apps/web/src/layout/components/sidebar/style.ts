@@ -6,11 +6,11 @@ export const StyledSidebar = styled.div`
 `;
 
 export const StyledSidebarNav = styled.nav`
-  padding: 3rem 0;
+  padding: 0rem 0;
 `;
 
 export const StyledSidebarMenuList = styled.ul`
-  padding: 3rem 0;
+  padding: 2rem 0 3rem;
 `;
 
 export const StyledSidebarMenuListItem = styled.li``;
